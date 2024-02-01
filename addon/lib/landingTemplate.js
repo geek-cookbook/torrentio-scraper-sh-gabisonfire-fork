@@ -33,7 +33,7 @@ h1 {
 h2 {
    font-size: 2.2vh;
    font-weight: normal;
-   font-style: italic;
+   // font-style: italic;
    opacity: 0.8;
 }
 
@@ -46,7 +46,7 @@ h2,
 h3,
 p,
 label {
-   margin: 0;
+   // margin: 0;
    text-shadow: 0 0 1vh rgba(0, 0, 0, 0.15);
 }
 
@@ -62,7 +62,7 @@ ul {
 }
 
 a {
-   color: green
+   color: #8D9E40
 }
 
 a.install-link {
@@ -95,7 +95,7 @@ a.install-link {
 }
 
 #addon {
-   width: 90vh;
+   width: 80vw;
    margin: auto;
    padding-left: 10%;
    padding-right: 10%;
@@ -212,6 +212,7 @@ export default function landingTemplate(manifest, config = {}) {
 
   const background = manifest.background || 'https://dl.strem.io/addon-background.jpg';
   const logo = manifest.logo || 'https://dl.strem.io/addon-logo.png';
+  const tenant = manifest.tenant || '';  
   const providersHTML = Providers.options
       .map(provider => `<option value="${provider.key}">${provider.foreign ? provider.foreign + ' ' : ''}${provider.label}</option>`)
       .join('\n');
@@ -261,14 +262,9 @@ export default function landingTemplate(manifest, config = {}) {
          </div>
          <h1 class="name">${manifest.name}</h1>
          <h2 class="version">${manifest.version || '0.0.0'}</h2>
-         <h2 class="description">${manifest.description || ''}</h2>
+         <h2 class="description">${manifest.descriptionHTML || ''}</h2>
 
          <div class="separator"></div>
-
-         <h3 class="gives">This addon has more :</h3>
-         <ul>
-            ${stylizedTypes.map(t => `<li>${t}</li>`).join('')}
-         </ul>
 
          <div class="separator"></div>
          
@@ -350,6 +346,7 @@ export default function landingTemplate(manifest, config = {}) {
          </a>
          <div class="contact">
            <p>Or paste into Stremio search bar after clicking install</p>
+           <p><A HREF="https://unsplash.com/photos/brown-ship-on-sea-during-sunset-HTpAIzZRHvw">Background image credit</A></p>
         </div>
         
         <div class="separator"></div>

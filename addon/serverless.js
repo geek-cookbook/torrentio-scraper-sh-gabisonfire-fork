@@ -10,6 +10,13 @@ import { parseConfiguration, PreConfigurations } from './lib/configuration.js';
 import landingTemplate from './lib/landingTemplate.js';
 import * as moch from './moch/moch.js';
 
+function replacer(key,value)
+{
+    if (key=="descriptionHTML") return undefined;
+    else if (key=="mochsHTML") return undefined;
+    else return value;
+}
+
 const router = new Router();
 const limiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
@@ -38,7 +45,7 @@ router.get('/:configuration?/configure', (req, res) => {
 
 router.get('/:configuration?/manifest.json', (req, res) => {
   const configValues = parseConfiguration(req.params.configuration || '');
-  const manifestBuf = JSON.stringify(manifest(configValues));
+  const manifestBuf = JSON.stringify(manifest(configValues),replacer);
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
   res.end(manifestBuf)
 });

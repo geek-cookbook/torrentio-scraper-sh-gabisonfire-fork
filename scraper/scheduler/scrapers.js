@@ -19,8 +19,8 @@ const nyaaSiScraper = require('../scrapers/nyaasi/nyaa_si_scraper');
 // const torrent9Scraper = require('../scrapers/torrent9/torrent9_scraper');
 
 module.exports = [
-  { scraper: ytsScraper, name: ytsScraper.NAME, cron: '0 0 */4 ? * *' },
-  { scraper: ytsFullScraper, name: ytsFullScraper.NAME, cron: '0 0 0 * * 0' },
+  // { scraper: ytsScraper, name: ytsScraper.NAME, cron: '0 0 */4 ? * *' },
+  // { scraper: ytsFullScraper, name: ytsFullScraper.NAME, cron: '0 0 0 * * 0' },
   { scraper: eztvScraper, name: eztvScraper.NAME, cron: '0 0 */4 ? * *' },
   { scraper: nyaaSiScraper, name: nyaaSiScraper.NAME, cron: '0 0 */4 ? * *' },
   { scraper: nyaaPantsuScraper, name: nyaaPantsuScraper.NAME, cron: '0 0 */4 ? * *' },

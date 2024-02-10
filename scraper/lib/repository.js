@@ -21,8 +21,8 @@ const Torrent = database.define('torrent',
     {
       infoHash: { type: DataTypes.STRING(64), primaryKey: true },
       provider: { type: DataTypes.STRING(32), allowNull: false },
-      torrentId: { type: DataTypes.STRING(512) },
-      title: { type: DataTypes.STRING(512), allowNull: false },
+      torrentId: { type: DataTypes.STRING(128) },
+      title: { type: DataTypes.STRING(256), allowNull: false },
       size: { type: DataTypes.BIGINT },
       type: { type: DataTypes.STRING(16), allowNull: false },
       uploadDate: { type: DataTypes.DATE, allowNull: false },
@@ -34,6 +34,7 @@ const Torrent = database.define('torrent',
       opened: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false }
     }
 );
+
 
 const File = database.define('file',
     {

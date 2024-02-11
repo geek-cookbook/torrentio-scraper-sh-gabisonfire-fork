@@ -7,7 +7,7 @@ const Promises = require('../../lib/promises');
 const { createTorrentEntry, checkAndUpdateTorrent } = require('../../lib/torrentEntries');
 
 const NAME = '1337x';
-const UNTIL_PAGE = 100000;
+const UNTIL_PAGE = 10;
 const TYPE_MAPPING = typeMapping();
 
 const limiter = new Bottleneck({ maxConcurrent: 10 });

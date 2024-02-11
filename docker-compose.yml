@@ -5,38 +5,39 @@ name: torrentio-self-host
 
 services:
 
-  mongodb:
-    restart: unless-stopped
-    image: docker.io/bitnami/mongodb:7.0
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo-data:/bitnami/mongodb
+  # mongodb:
+  #   restart: unless-stopped
+  #   image: docker.io/bitnami/mongodb:7.0
+  #   ports:
+  #     - "27017:27017"
+  #   volumes:
+  #     - mongo-data:/bitnami/mongodb
   
-  scraper:
-    build: ./scraper
-    restart: unless-stopped
-    depends_on:
-      - mongodb
-      - postgres
-    environment:
-      - PORT=7001
-      - MONGODB_URI=mongodb://mongodb:27017/torrentio
-      - DATABASE_URI=postgres://postgres@postgres:5432/torrentio
-      - ENABLE_SYNC=true
+  # scraper:
+  #   build: ./scraper
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - mongodb
+  #     - postgres
+  #   environment:
+  #     - PORT=7001
+  #     - MONGODB_URI=mongodb://mongodb:27017/torrentio
+  #     - DATABASE_URI=postgres://postgres@postgres:5432/torrentio
+  #     - ENABLE_SYNC=true
+  #     - SCRAPER=eztvScraper
   
-  torrentio:
-    build: ./addon
-    restart: unless-stopped
-    depends_on:
-      - mongodb
-      - postgres
-    ports:
-      - "7000:7000"
-    environment:
-      - MONGODB_URI=mongodb://mongodb:27017/torrentio
-      - DATABASE_URI=postgres://postgres@postgres:5432/torrentio
-      - ENABLE_SYNC=true
+  # torrentio:
+  #   build: ./addon
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - mongodb
+  #     - postgres
+  #   ports:
+  #     - "7000:7000"
+  #   environment:
+  #     - MONGODB_URI=mongodb://mongodb:27017/torrentio
+  #     - DATABASE_URI=postgres://postgres@postgres:5432/torrentio
+  #     - ENABLE_SYNC=true
   
   postgres:
     image: postgres:14-alpine
@@ -51,6 +52,7 @@ services:
       - POSTGRES_DB=torrentio
   
   flaresolverr:
+    container_name: flaresolverr
     image: ghcr.io/flaresolverr/flaresolverr:latest
     restart: unless-stopped
     ports:

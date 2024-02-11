@@ -91,7 +91,7 @@ function singleRequest(requestUrl, config = {}) {
 
   if (FlaresolverrUserAgent === '' || FlaresolverrCookies === '') {
     console.log("using flaresolverr");
-    return axios.post('http://flaresolverr:8191/v1', {
+    return axios.post(process.env.FLARESOLVERR_ENDPOINT, {
       cmd: 'request.get',
       url: requestUrl,
     }, options)

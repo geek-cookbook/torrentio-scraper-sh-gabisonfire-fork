@@ -1,7 +1,7 @@
 // const thepiratebayScraper = require('../scrapers/thepiratebay/thepiratebay_scraper');
 // const thepiratebayFakeRemoval = require('../scrapers/thepiratebay/thepiratebay_fakes_removal');
-const ytsScraper = require('../scrapers/yts/yts_scraper');
-const ytsFullScraper = require('../scrapers/yts/yts_full_scraper');
+// const ytsScraper = require('../scrapers/yts/yts_scraper');
+// const ytsFullScraper = require('../scrapers/yts/yts_full_scraper');
 const eztvScraper = require('../scrapers/eztv/eztv_scraper');
 const leetxScraper = require('../scrapers/1337x/1337x_scraper');
 // const rarbgScraper = require('../scrapers/rarbg/rarbg_scraper');
